@@ -9,10 +9,8 @@ This repository contains the VHDL implementation of a **16-bit pipelined process
 2. [Features](#features)
 3. [Supported Instructions](#supported-instructions)
 4. [Pipeline Stages](#pipeline-stages)
-5. [Simulation and Testing](#simulation-and-testing)
-6. [FPGA Implementation](#fpga-implementation)
-7. [Future Work?](#future-work)
-8. [License](#license)
+5. [Future Work?](#future-work)
+6. [License](#license)
 
 ---
 
@@ -95,48 +93,6 @@ The processor is divided into five pipeline stages:
 5. **Writeback (WB)**:
    - Writes results back to the destination register.
    - Updates the register file.
-
----
-
-## Simulation and Testing
-
-To simulate the processor:
-
-1. Use a VHDL simulator (e.g., ModelSim, GHDL) to compile and run the code.
-2. Write a testbench to provide input signals (`clock`, `reset_n`, `data_in`, `addr_in`) and observe the output (`data_out`, `addr_out`, `mem_read`, `mem_write`, `done`).
-3. Verify the functionality of each instruction by checking the contents of registers and memory after execution.
-
-Example testbench steps:
-- Load an immediate value into a register using `MVI`.
-- Perform arithmetic operations using `ADD` and `SUB`.
-- Test memory access using `LD` and `ST`.
-- Verify control flow using `JMP` and `BEQ`.
-
----
-
-## FPGA Implementation
-
-The processor can be implemented on an FPGA using the following steps:
-
-1. **Synthesis**:
-   - Use a synthesis tool (e.g., Quartus, Vivado) to synthesize the VHDL code.
-   - Ensure the design meets timing constraints.
-
-2. **Pin Assignment**:
-   - Map the input/output ports to FPGA pins:
-     - `clock`: Connect to a clock source (e.g., a button or external oscillator).
-     - `reset_n`: Connect to a reset button.
-     - `data_in`: Connect to switches for data input.
-     - `addr_in`: Connect to switches for address input.
-     - `data_out`: Connect to LEDs to display data.
-     - `addr_out`: Connect to LEDs to display addresses.
-     - `mem_read`/`mem_write`: Connect to LEDs to indicate memory operations.
-     - `done`: Connect to an LED to indicate completion.
-
-3. **Testing on FPGA**:
-   - Load the synthesized design onto the FPGA.
-   - Use switches and buttons to input instructions and data.
-   - Observe the results on the LEDs.
 
 ---
 
